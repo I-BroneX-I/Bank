@@ -1,0 +1,117 @@
+@import './global';
+
+%extend_history {
+    .history_body {
+        display: flex;
+        padding: 14px 21px;
+        justify-content: space-between;
+        align-items: flex-end;
+        align-self: stretch;
+        border-radius: 10.404px;
+        border: 0.867px solid #262626;
+        background: $bg_topNav;
+
+        .history_info {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            .history_icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 35px;
+                height: 35px;
+                border-radius: 50px;
+                background-color: $mainColor;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            .history_text {
+                .title {
+                    font-family: Lexend;
+                    font-size: 15.607px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: 150%;
+                    /* 23.41px */
+                    color: $textColor;
+                }
+
+                .name {
+                    font-family: Lexend;
+                    font-size: 17.341px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    /* 26.011px */
+                    color: $textColor;
+                }
+            }
+        }
+
+        .history_price {
+            font-family: Lexend;
+            font-size: 20.809px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+            /* 31.213px */
+            color: $textColor;
+        }
+    }
+}
+
+%extend_currency {
+    padding: 18px;
+
+    .exchange__currency-title {
+        margin-bottom: 8px;
+        display: grid;
+        grid-template-columns: max-content max-content;
+        justify-content: start;
+        align-items: center;
+
+        img {
+            width: 35px;
+            height: 35px;
+            margin-right: 9px;
+        }
+
+        span {
+            font-family: Lexend;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            /* 23.41px */
+            color: $textColor;
+        }
+    }
+
+    .exchange__currency-name {
+        font-family: Lexend;
+        font-size: 13.873px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 150%;
+        /* 20.809px */
+        color: $tagline_color;
+    }
+}
+
+%extend_price{
+    padding: 26px 17px;
+    
+    font-family: Lexend;
+    font-size: 17.341px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 26.011px */
+
+    color: $textColor;
+}
