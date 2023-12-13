@@ -42,6 +42,9 @@ header {
 
     .container {
         padding-top: 50px;
+        @media (max-width: 1200px) {
+            padding-top: 30px;
+        }
     }
 
     .topNav {
