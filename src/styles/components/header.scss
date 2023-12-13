@@ -35,6 +35,9 @@ header {
 
         background-image: url('./../assets/images/header_bg.png');
 
+        @media (max-width: 1440px) {
+            right: 20px;
+        }
     }
 
     .container {
@@ -55,17 +58,27 @@ header {
 
         background-color: $bg_topNav;
 
-        // &__logo {}
+        @media (max-width: 1200px) {
+            padding: 14px 24px;
+        }
 
         &__nav {
             display: grid;
             grid-template-columns: repeat(4, min-content);
             gap: 26px;
 
+            @media (max-width: 1200px) {
+                gap: 10px;
+            }
+
             li {
                 list-style: none;
                 padding: 12px 24px;
                 border-radius: 82px;
+
+                @media (max-width: 1200px) {
+                    padding: 10px 18px;
+                }
 
                 &:hover {
                     background-color: #262626
@@ -79,6 +92,10 @@ header {
                     line-height: 150%;
                     /* 27px */
                     color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 14px;
+                    }
                 }
             }
         }
@@ -89,6 +106,10 @@ header {
             align-items: center;
             gap: 30px;
 
+            @media (max-width: 1200px) {
+                gap: 20px;
+            }
+
             .singUn {
                 font-family: Lexend, sans-serif;
                 font-size: 18px;
@@ -96,8 +117,11 @@ header {
                 font-weight: 400;
                 line-height: 150%;
                 /* 27px */
-
                 color: $textColor;
+
+                @media (max-width: 1200px) {
+                    font-size: 14px;
+                }
             }
 
             .login {
@@ -115,19 +139,36 @@ header {
                 font-weight: 400;
                 line-height: 150%;
                 /* 27px */
-
-
                 color: $bg_topNav;
+
+                @media (max-width: 1200px) {
+                    padding: 12px 24px;
+
+                    font-size: 14px;
+                }
             }
         }
     }
 
     .headerContent {
         display: flex;
-        padding: 100px 0;
+        padding-top: 100px;
         padding-right: 135px;
         align-items: flex-start;
         gap: 120px;
+
+        @media (max-width: 1440px) {
+            padding-right: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            padding-top: 80px;
+            gap: 100px;
+        }
+
+        @media (max-width: 992px) {
+            gap: 20px;
+        }
 
         .textBlock {
             &__text {
@@ -140,6 +181,11 @@ header {
 
                 background: #262626;
 
+                @media (max-width: 1200px) {
+                    padding: 8px 16px 8px 8px;
+                    gap: 4px;
+                }
+
                 span {
                     font-family: Lexend;
                     font-size: 18px;
@@ -148,6 +194,10 @@ header {
                     line-height: 24px;
 
                     color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 14px;
+                    }
                 }
             }
 
@@ -164,6 +214,20 @@ header {
 
                 color: $textColor;
 
+                @media (max-width: 1440px) {
+                    width: 100%;
+                }
+
+                @media (max-width: 1200px) {
+                    font-size: 38px;
+                    width: 100%;
+                }
+
+                @media (max-width: 992px) {
+                    font-size: 24px;
+                    margin-bottom: 50px;
+                }
+
                 span {
                     font-family: Lexend;
                     font-size: 48px;
@@ -172,6 +236,14 @@ header {
                     line-height: 150%;
 
                     color: $mainColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 38px;
+                    }
+
+                    @media (max-width: 992px) {
+                        font-size: 24px;
+                    }
                 }
             }
 
@@ -184,7 +256,17 @@ header {
                 font-weight: 300;
                 line-height: 150%;
                 /* 27px */
-                color: $tagline_color
+                color: $tagline_color;
+
+                @media (max-width: 1200px) {
+                    margin-bottom: 40px;
+
+                    font-size: 16;
+                }
+
+                @media (max-width: 992px) {
+                    font-size: 11px;
+                }
             }
 
             &__btn {
@@ -200,23 +282,43 @@ header {
                 font-style: normal;
                 font-weight: 400;
                 line-height: 150%;
+
                 /* 27px */
+                @media (max-width: 1200px) {
+                    padding: 14px 24px;
+
+                    font-size: 14px;
+                }
+
+                @media (max-width: 992px) {
+                    padding: 10px 16px;
+                    font-size: 12px;
+                }
             }
         }
 
+        /**/
         .transactions {
             position: relative;
             z-index: 12;
-            width: 515.019px;
             padding: 35px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             flex-shrink: 0;
 
-            border-radius: 10.404px;
+            border-radius: 10px;
             border: 0.867px solid #262626;
             background: linear-gradient(215deg, rgba(26, 26, 26) 0%, #1A1A1A 39.72%), url('./../assets/images/bg_transactions.png'), lightgray 0% 0% / 62.46418356895447px 62.46418356895447px repeat, #1A1A1A;
+
+            @media (max-width: 1200px) {
+                padding: 28px;
+            }
+
+            @media (max-width: 992px) {
+                width: 40%;
+                padding: 10px;
+            }
 
 
             &__monthly_income {
@@ -231,6 +333,10 @@ header {
 
                 background: $transactions_color;
 
+                @media (max-width: 1200px) {
+                    padding: 11px 13px;
+                }
+
                 .transactions__icon {
                     padding: 9px;
                     height: 40px;
@@ -239,6 +345,13 @@ header {
                     border-radius: 50px;
 
                     background-color: $mainColor;
+
+                    @media (max-width: 1200px) {
+                        padding: 5px;
+                        padding-top: 5px;
+                        height: 30px;
+                        width: 30px;
+                    }
                 }
             }
 
@@ -251,6 +364,10 @@ header {
                     line-height: 150%;
                     /* 26.011px */
                     color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 14px;
+                    }
                 }
 
                 .transactions__description {
@@ -261,6 +378,10 @@ header {
                     line-height: 150%;
                     /* 20.809px */
                     color: $tagline_color;
+
+                    @media (max-width: 1200px) {
+                        font-size: 11px;
+                    }
                 }
             }
 
@@ -274,6 +395,15 @@ header {
                 line-height: 150%;
                 /* 26.011px */
                 color: $textColor;
+
+                @media (max-width: 1200px) {
+                    font-size: 14px;
+                    margin-bottom: 14px;
+                }
+
+                @media (max-width: 992px) {
+                    margin-bottom: 10px;
+                }
             }
 
             &__history_1 {
@@ -305,37 +435,76 @@ header {
             }
 
             .exchange {
-                width: 100%;
-                margin: 25px 0;
-                border-radius: 10px;
-                border: 1px solid #262626;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: max-content max-content;
-                grid-template-areas: 
-                    'currency currency'
-                    'price price'
-                ;
-                &__currency-1{
+                @media (max-width: 992px) {
+                    margin-top: -30px;
+                }
+
+                &__title {
+                    margin-bottom: 18px;
+
+                    font-family: Lexend;
+                    font-size: 17.341px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 150%;
+                    /* 26.011px */
+                    color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 14px;
+                        margin-bottom: 14px;
+                    }
+
+                    @media (max-width: 992px) {
+                        margin-bottom: 10px;
+                    }
+                }
+
+                &__container {
+                    width: 100%;
+                    margin: 25px 0;
+                    border-radius: 10px;
+                    border: 1px solid #262626;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: max-content max-content;
+                    grid-template-areas:
+                        'currency currency'
+                        'price price'
+                    ;
+
+                    @media (max-width: 1200px) {
+                        margin: 20px 0;
+                    }
+
+                    @media (max-width: 992px) {
+                        margin: 0;
+                    }
+                }
+
+                &__currency-1 {
                     border-right: 1px solid #262626;
                     border-bottom: 1px solid #262626;
 
                     @extend %extend_currency;
                 }
-                &__currency-2{
+
+                &__currency-2 {
                     border-bottom: 1px solid #262626;
                     @extend %extend_currency;
                 }
-                &__price-1{
+
+                &__price-1 {
                     border-right: 1px solid #262626;
                     @extend %extend_price;
                 }
-                &__price-2{
+
+                &__price-2 {
                     @extend %extend_price;
                 }
             }
 
-            &__exchange{
+            &__exchange {
                 width: 100%;
                 padding: 14px 26px;
                 border-radius: 70px;
@@ -344,10 +513,17 @@ header {
                 font-size: 15.607px;
                 font-style: normal;
                 font-weight: 400;
-                line-height: 150%; /* 23.41px */
+                line-height: 150%;
+                /* 23.41px */
                 color: $exchange_btn_color;
 
                 background-color: $transactions_color;
+
+                @media (max-width: 1200px) {
+                    padding: 11px 20px;
+                    font-size: 12px;
+
+                }
             }
         }
     }

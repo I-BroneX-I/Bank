@@ -11,6 +11,10 @@
         border: 0.867px solid #262626;
         background: $bg_topNav;
 
+        @media (max-width: 1200px) {
+            padding: 11px 16.5px;
+        }
+
         .history_info {
             display: flex;
             align-items: center;
@@ -25,9 +29,20 @@
                 border-radius: 50px;
                 background-color: $mainColor;
 
+                @media (max-width: 1200px) {
+                    width: 30px;
+                    height: 30px;
+
+                }
+
                 img {
                     width: 20px;
                     height: 20px;
+
+                    @media (max-width: 1200px) {
+                        width: 15px;
+                        height: 15px;
+                    }
                 }
             }
 
@@ -40,6 +55,10 @@
                     line-height: 150%;
                     /* 23.41px */
                     color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 12px;
+                    }
                 }
 
                 .name {
@@ -50,6 +69,10 @@
                     line-height: 150%;
                     /* 26.011px */
                     color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 14px;
+                    }
                 }
             }
         }
@@ -62,12 +85,20 @@
             line-height: 150%;
             /* 31.213px */
             color: $textColor;
+
+            @media (max-width: 1200px) {
+                font-size: 17px;
+            }
         }
     }
 }
 
 %extend_currency {
     padding: 18px;
+
+    @media (max-width: 1200px) {
+        padding: 14px;
+    }
 
     .exchange__currency-title {
         margin-bottom: 8px;
@@ -76,10 +107,20 @@
         justify-content: start;
         align-items: center;
 
+        @media (max-width: 1200px) {
+            margin-bottom: 6px;
+        }
+
         img {
             width: 35px;
             height: 35px;
             margin-right: 9px;
+
+            @media (max-width: 1200px) {
+                width: 27px;
+                height: 27px;
+                margin-right: 7px;
+            }
         }
 
         span {
@@ -90,28 +131,41 @@
             line-height: 150%;
             /* 23.41px */
             color: $textColor;
+
+            @media (max-width: 1200px) {
+                font-size: 12px;
+            }
         }
     }
 
     .exchange__currency-name {
         font-family: Lexend;
-        font-size: 13.873px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 300;
         line-height: 150%;
         /* 20.809px */
         color: $tagline_color;
+
+        @media (max-width: 1200px) {
+            font-size: 11px;
+        }
     }
 }
 
-%extend_price{
+%extend_price {
     padding: 26px 17px;
-    
+
     font-family: Lexend;
     font-size: 17.341px;
     font-style: normal;
     font-weight: 500;
-    line-height: 150%; /* 26.011px */
-
+    line-height: 150%;
+    /* 26.011px */
     color: $textColor;
+
+    @media (max-width: 1200px) {
+        padding: 20px 13px;
+        font-size: 14px;
+    }
 }
