@@ -59,6 +59,9 @@
                     @media (max-width: 1200px) {
                         font-size: 12px;
                     }
+                    @media (max-width: 769px) {
+                        font-size: 9px;
+                    }
                 }
 
                 .name {
@@ -72,6 +75,9 @@
 
                     @media (max-width: 1200px) {
                         font-size: 14px;
+                    }
+                    @media (max-width: 769px) {
+                        font-size: 10px;
                     }
                 }
             }
@@ -117,6 +123,11 @@
             margin-right: 9px;
 
             @media (max-width: 1200px) {
+                width: 22px;
+                height: 22px;
+                margin-right: 3px;
+            }
+            @media (max-width: 769px) {
                 width: 27px;
                 height: 27px;
                 margin-right: 7px;
@@ -135,6 +146,9 @@
             @media (max-width: 1200px) {
                 font-size: 12px;
             }
+            @media (max-width: 769px) {
+                font-size: 8px;
+            }
         }
     }
 
@@ -149,6 +163,10 @@
 
         @media (max-width: 1200px) {
             font-size: 11px;
+        }
+        @media (max-width: 769px) {
+            font-size: 8px;
+            text-align: left;
         }
     }
 }
@@ -167,5 +185,9 @@
     @media (max-width: 1200px) {
         padding: 20px 13px;
         font-size: 14px;
+    }
+    @media (max-width: 769px) {
+        font-size: 12px;
+        text-align: left;
     }
 }
