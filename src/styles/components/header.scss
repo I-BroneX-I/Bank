@@ -1,1 +1,726 @@
 @import './../helpers/global';
+@import './../helpers/extends';
+@import './../helpers/keyframes';
+
+header {
+    position: relative;
+
+    min-height: 100vh;
+
+    background-color: $bg_color;
+
+    &::before {
+        content: '';
+        position: fixed;
+        width: 459px;
+        height: 410px;
+
+        background-image: url('./../assets/images/img_top.png');
+        position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @media (max-width: 769px) {
+            width: 80%;
+        }
+    }
+
+    &::after {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        right: 110px;
+        top: 308px;
+
+        display: flex;
+        width: 300px;
+        height: 275px;
+        justify-content: center;
+        align-items: center;
+
+        background-image: url('./../assets/images/header_bg.png');
+        background-position: right;
+        background-repeat: no-repeat;
+
+        @media (max-width: 1440px) {
+            right: 20px;
+        }
+
+        @media (max-width: 769px) {
+            top: 570px;
+            right: 0;
+            width: 90%;
+        }
+    }
+
+    .container {
+        padding-top: 50px;
+
+        @media (max-width: 1200px) {
+            padding-top: 30px;
+        }
+    }
+
+    .topNav {
+        position: relative;
+        z-index: 2;
+        border-radius: 20px;
+        padding: 20px 34px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        box-shadow: 0 4px 4px rgba(0, 0, 0, .2);
+
+        background-color: $bg_topNav;
+
+        @media (max-width: 1200px) {
+            padding: 14px 24px;
+        }
+
+        @media (max-width: 769px) {
+            position: absolute;
+            width: 90%;
+            z-index: 2;
+            align-items: start;
+
+            display: block;
+        }
+
+        &__logo {
+            img {
+                width: 150px;
+                height: 40px;
+
+                @media (max-width: 769px) {
+                    position: absolute;
+                    width: 100px;
+                    height: 25px;
+                }
+            }
+        }
+
+        &__nav {
+            display: grid;
+            align-items: center;
+
+            @media (max-width: 769px) {
+                display: grid;
+                width: 100%;
+            }
+
+            .burger {
+                display: none;
+
+                @media (max-width: 769px) {
+                    display: grid;
+                    justify-content: center;
+                    justify-self: end;
+                    align-items: center;
+                    padding: 6px 14px;
+                    width: max-content;
+                    height: 25px;
+
+                    border-radius: 82px;
+
+                    background: $mainColor;
+
+                    hr {
+                        width: 16px;
+                        margin: 2px 0;
+                        height: 1px;
+                        background-color: #000;
+                        border: 0;
+
+                        &:last-child {
+                            width: 8px;
+                            justify-self: end;
+                        }
+                    }
+                }
+            }
+
+            .activeBurger {
+                background-color: red;
+                justify-self: end;
+            }
+
+            nav {
+                display: grid;
+                grid-template-columns: repeat(4, min-content);
+                gap: 26px;
+
+                @media (max-width: 1200px) {
+                    gap: 10px;
+                }
+
+                @media (max-width: 769px) {
+                    display: none;
+                    grid-template-columns: 1fr;
+                    gap: 0;
+                    opacity: 0;
+
+                    animation: openNavText 1s linear 1s forwards;
+                }
+
+                a {
+                    list-style: none;
+                    padding: 12px 24px;
+                    border-radius: 82px;
+
+                    font-family: Lexend,
+                        sans-serif;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    /* 27px */
+                    color: $textColor;
+
+                    &:hover {
+                        background-color: #262626
+                    }
+
+                    @media (max-width: 1200px) {
+                        padding: 10px 18px;
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .activeUl {
+                @media (max-width: 769px) {
+                    display: grid;
+                }
+            }
+
+            .close {
+                display: none;
+            }
+        }
+
+        &__form {
+            display: grid;
+            grid-template-columns: max-content max-content;
+            align-items: center;
+            gap: 30px;
+
+            @media (max-width: 1200px) {
+                gap: 20px;
+            }
+
+            @media (max-width: 769px) {
+               display: none;
+            }
+
+            .singUn {
+                font-family: Lexend, sans-serif;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                /* 27px */
+                color: $textColor;
+
+                @media (max-width: 1200px) {
+                    font-size: 14px;
+                }
+            }
+
+            .login {
+                display: flex;
+                padding: 14px 30px;
+                align-items: center;
+                gap: 10px;
+
+                border-radius: 82px;
+                background: $mainColor;
+
+                font-family: Lexend, sans-serif;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                /* 27px */
+                color: $bg_topNav;
+
+                @media (max-width: 1200px) {
+                    padding: 12px 24px;
+
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .activeForm{
+            position: absolute;
+            bottom: 20px;
+
+            width: 85%;
+            padding: 5px 10px;
+            opacity: 0;
+            display: grid;
+            border: 1px solid $mainColor;
+            border-radius: 20px;
+
+            justify-content: space-between;
+
+            animation: openNavText 1s linear 1s forwards;
+        }
+
+        .close {
+            display: none;
+        }
+    }
+
+    .openNavBody {
+        @media (max-width: 769px) {
+            position: absolute;
+            top: 30px;
+            height: 90vh;
+            z-index: 100;
+            animation: openNavBody 1s linear forwards;
+        }
+    }
+
+    .headerContent {
+        display: flex;
+        padding-top: 100px;
+        padding-right: 135px;
+        align-items: flex-start;
+        gap: 120px;
+
+        @media (max-width: 1440px) {
+            padding-right: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            padding-top: 80px;
+            gap: 100px;
+        }
+
+        @media (max-width: 992px) {
+            padding-top: 50px;
+            gap: 20px;
+        }
+
+        @media (max-width: 769px) {
+            display: block;
+            padding-right: 0;
+
+            text-align: center;
+        }
+
+        .textBlock {
+
+            @media (max-width: 769px) {
+                margin-top: 50px;
+            }
+
+            &__text {
+                display: inline-flex;
+                padding: 10px 20px 10px 12px;
+                align-items: center;
+                gap: 6px;
+                border-radius: 61px;
+                margin-bottom: 20px;
+
+                background: #262626;
+
+                @media (max-width: 1200px) {
+                    padding: 8px 16px 8px 8px;
+                    gap: 4px;
+                }
+
+                span {
+                    font-family: Lexend;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: 24px;
+
+                    color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            &__title {
+                margin-bottom: 14px;
+                width: 80%;
+
+                font-family: Lexend;
+                font-size: 48px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 150%;
+                /* 72px */
+
+                color: $textColor;
+
+                @media (max-width: 1440px) {
+                    width: 100%;
+                }
+
+                @media (max-width: 1200px) {
+                    font-size: 38px;
+                    width: 100%;
+                }
+
+                @media (max-width: 992px) {
+                    font-size: 24px;
+                    margin-bottom: 50px;
+                }
+
+                @media (max-width: 769px) {
+                    font-size: 28px;
+                    margin-bottom: 8px;
+                }
+
+                span {
+                    font-family: Lexend;
+                    font-size: 48px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 150%;
+
+                    color: $mainColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 38px;
+                    }
+
+                    @media (max-width: 992px) {
+                        font-size: 24px;
+                    }
+
+                    @media (max-width: 769px) {
+                        font-size: 28px;
+                    }
+                }
+            }
+
+            &__tagline {
+                margin-bottom: 50px;
+
+                font-family: Lexend;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 150%;
+                /* 27px */
+                color: $tagline_color;
+
+                @media (max-width: 1200px) {
+                    margin-bottom: 40px;
+
+                    font-size: 16;
+                }
+
+                @media (max-width: 992px) {
+                    font-size: 11px;
+                }
+
+                @media (max-width: 769px) {
+                    font-size: 14px;
+                    text-align: center;
+                }
+            }
+
+            &__btn {
+                display: flex;
+                padding: 18px 30px;
+                align-items: center;
+                border-radius: 82px;
+
+                background: $mainColor;
+                color: $bg_topNav ;
+                font-family: Lexend;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+
+                /* 27px */
+                @media (max-width: 1200px) {
+                    padding: 14px 24px;
+
+                    font-size: 14px;
+                }
+
+                @media (max-width: 992px) {
+                    padding: 10px 16px;
+                    font-size: 12px;
+                }
+
+                @media (max-width: 769px) {
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        /**/
+        .transactions {
+            position: relative;
+            z-index: 12;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex-shrink: 0;
+
+            border-radius: 10px;
+            border: 0.867px solid #262626;
+            background: linear-gradient(215deg, rgba(26, 26, 26) 0%, #1A1A1A 39.72%), url('./../assets/images/bg_transactions.png'), lightgray 0% 0% / 62.46418356895447px 62.46418356895447px repeat, #1A1A1A;
+
+            @media (max-width: 1200px) {
+                padding: 28px;
+            }
+
+            @media (max-width: 992px) {
+                width: 40%;
+                padding: 10px;
+            }
+
+            @media (max-width: 769px) {
+                width: 85%;
+                margin: 0 auto;
+                margin-top: 80px;
+                padding-top: 20px;
+            }
+
+
+            &__monthly_income {
+                position: absolute;
+                left: -60px;
+                top: -43px;
+
+                border-radius: 10px;
+                padding: 14px 18px;
+                display: flex;
+                gap: 9px;
+
+                background: $transactions_color;
+
+                @media (max-width: 1200px) {
+                    padding: 11px 13px;
+                }
+
+                @media (max-width: 769px) {
+                    left: -30px;
+                }
+
+                .transactions__icon {
+                    padding: 9px;
+                    height: 40px;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50px;
+
+                    background-color: $mainColor;
+
+                    @media (max-width: 1200px) {
+                        padding: 5px;
+                        padding-top: 5px;
+                        height: 30px;
+                        width: 30px;
+                    }
+                }
+            }
+
+            &__text {
+                .transactions__money {
+                    font-family: Lexend;
+                    font-size: 17.341px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    /* 26.011px */
+                    color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 14px;
+                    }
+                }
+
+                .transactions__description {
+                    font-family: Lexend;
+                    font-size: 13.873px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: 150%;
+                    /* 20.809px */
+                    color: $tagline_color;
+
+                    @media (max-width: 1200px) {
+                        font-size: 11px;
+                    }
+                }
+            }
+
+            &__title {
+                margin-bottom: 18px;
+
+                font-family: Lexend;
+                font-size: 17.341px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 150%;
+                /* 26.011px */
+                color: $textColor;
+
+                @media (max-width: 1200px) {
+                    font-size: 14px;
+                    margin-bottom: 14px;
+                }
+
+                @media (max-width: 992px) {
+                    margin-bottom: 10px;
+                }
+
+                @media (max-width: 769px) {
+                    margin-bottom: 15px;
+                    font-size: 10px;
+                }
+            }
+
+            &__history_1 {
+                position: relative;
+                z-index: 5;
+                width: 100%;
+                @extend %extend_history;
+            }
+
+            &__history_2 {
+                position: relative;
+                top: -20px;
+                z-index: 4;
+                opacity: 0.5;
+                margin: 0 auto;
+                width: 90%;
+                @extend %extend_history;
+            }
+
+            &__history_3 {
+                position: relative;
+                top: -40px;
+                z-index: 3;
+                opacity: 0.3;
+
+                margin: 0 auto;
+                width: 80%;
+                @extend %extend_history;
+            }
+
+            .exchange {
+                width: 100%;
+
+                @media (max-width: 992px) {
+                    margin-top: -30px;
+                }
+
+                &__title {
+                    margin-bottom: 18px;
+
+                    font-family: Lexend;
+                    font-size: 17.341px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 150%;
+                    /* 26.011px */
+                    color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 14px;
+                        margin-bottom: 14px;
+                    }
+
+                    @media (max-width: 992px) {
+                        margin-bottom: 10px;
+                    }
+
+                    @media (max-width: 769px) {
+                        font-size: 10px;
+                        text-align: left;
+                    }
+                }
+
+                &__container {
+                    width: 100%;
+                    margin: 25px 0;
+                    border-radius: 10px;
+                    border: 1px solid #262626;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: max-content max-content;
+                    grid-template-areas:
+                        'currency currency'
+                        'price price'
+                    ;
+
+                    @media (max-width: 1200px) {
+                        margin: 20px 0;
+                    }
+
+                    @media (max-width: 992px) {
+                        margin: 0;
+                    }
+
+                    // @media (max-width: 769px) {
+                    //     margin: 0 auto;
+                    // }
+                }
+
+                &__currency-1 {
+                    border-right: 1px solid #262626;
+                    border-bottom: 1px solid #262626;
+
+                    @extend %extend_currency;
+                }
+
+                &__currency-2 {
+                    border-bottom: 1px solid #262626;
+                    @extend %extend_currency;
+                }
+
+                &__price-1 {
+                    border-right: 1px solid #262626;
+                    @extend %extend_price;
+                }
+
+                &__price-2 {
+                    @extend %extend_price;
+                }
+            }
+
+            &__exchange {
+                width: 100%;
+                padding: 14px 26px;
+                border-radius: 70px;
+
+                font-family: Lexend;
+                font-size: 15.607px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                /* 23.41px */
+                color: $exchange_btn_color;
+
+                background-color: $transactions_color;
+
+                @media (max-width: 1200px) {
+                    padding: 11px 20px;
+                    font-size: 12px;
+                }
+
+                @media (max-width: 769px) {
+                    margin-top: 14px;
+                    padding: 8px 15px;
+                    font-size: 9px;
+                }
+            }
+        }
+    }
+}

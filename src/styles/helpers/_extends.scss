@@ -1,0 +1,193 @@
+@import './global';
+
+%extend_history {
+    .history_body {
+        display: flex;
+        padding: 14px 21px;
+        justify-content: space-between;
+        align-items: flex-end;
+        align-self: stretch;
+        border-radius: 10.404px;
+        border: 0.867px solid #262626;
+        background: $bg_topNav;
+
+        @media (max-width: 1200px) {
+            padding: 11px 16.5px;
+        }
+
+        .history_info {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            .history_icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 35px;
+                height: 35px;
+                border-radius: 50px;
+                background-color: $mainColor;
+
+                @media (max-width: 1200px) {
+                    width: 30px;
+                    height: 30px;
+
+                }
+
+                img {
+                    width: 20px;
+                    height: 20px;
+
+                    @media (max-width: 1200px) {
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
+
+            .history_text {
+                .title {
+                    font-family: Lexend;
+                    font-size: 15.607px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: 150%;
+                    /* 23.41px */
+                    color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 12px;
+                    }
+                    @media (max-width: 769px) {
+                        font-size: 9px;
+                    }
+                }
+
+                .name {
+                    font-family: Lexend;
+                    font-size: 17.341px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    /* 26.011px */
+                    color: $textColor;
+
+                    @media (max-width: 1200px) {
+                        font-size: 14px;
+                    }
+                    @media (max-width: 769px) {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+
+        .history_price {
+            font-family: Lexend;
+            font-size: 20.809px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+            /* 31.213px */
+            color: $textColor;
+
+            @media (max-width: 1200px) {
+                font-size: 17px;
+            }
+        }
+    }
+}
+
+%extend_currency {
+    padding: 18px;
+
+    @media (max-width: 1200px) {
+        padding: 14px;
+    }
+
+    .exchange__currency-title {
+        margin-bottom: 8px;
+        display: grid;
+        grid-template-columns: max-content max-content;
+        justify-content: start;
+        align-items: center;
+
+        @media (max-width: 1200px) {
+            margin-bottom: 6px;
+        }
+
+        img {
+            width: 35px;
+            height: 35px;
+            margin-right: 9px;
+
+            @media (max-width: 1200px) {
+                width: 22px;
+                height: 22px;
+                margin-right: 3px;
+            }
+            @media (max-width: 769px) {
+                width: 27px;
+                height: 27px;
+                margin-right: 7px;
+            }
+        }
+
+        span {
+            font-family: Lexend;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            /* 23.41px */
+            color: $textColor;
+
+            @media (max-width: 1200px) {
+                font-size: 12px;
+            }
+            @media (max-width: 769px) {
+                font-size: 8px;
+            }
+        }
+    }
+
+    .exchange__currency-name {
+        font-family: Lexend;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 150%;
+        /* 20.809px */
+        color: $tagline_color;
+
+        @media (max-width: 1200px) {
+            font-size: 11px;
+        }
+        @media (max-width: 769px) {
+            font-size: 8px;
+            text-align: left;
+        }
+    }
+}
+
+%extend_price {
+    padding: 26px 17px;
+
+    font-family: Lexend;
+    font-size: 17.341px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 26.011px */
+    color: $textColor;
+
+    @media (max-width: 1200px) {
+        padding: 20px 13px;
+        font-size: 14px;
+    }
+    @media (max-width: 769px) {
+        font-size: 12px;
+        text-align: left;
+    }
+}
