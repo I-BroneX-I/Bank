@@ -1,5 +1,6 @@
 @import './../helpers/global';
 @import './../helpers/extends';
+@import './../helpers/keyframes';
 
 header {
     position: relative;
@@ -44,6 +45,7 @@ header {
         @media (max-width: 1440px) {
             right: 20px;
         }
+
         @media (max-width: 769px) {
             top: 570px;
             right: 0;
@@ -67,7 +69,6 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        grid-template-columns: min-content min-content min-content;
 
         box-shadow: 0 4px 4px rgba(0, 0, 0, .2);
 
@@ -78,7 +79,12 @@ header {
         }
 
         @media (max-width: 769px) {
+            position: absolute;
+            width: 90%;
+            z-index: 2;
             align-items: start;
+
+            display: block;
         }
 
         &__logo {
@@ -87,6 +93,7 @@ header {
                 height: 40px;
 
                 @media (max-width: 769px) {
+                    position: absolute;
                     width: 100px;
                     height: 25px;
                 }
@@ -99,7 +106,7 @@ header {
 
             @media (max-width: 769px) {
                 display: grid;
-                justify-content: end;
+                width: 100%;
             }
 
             .burger {
@@ -108,6 +115,7 @@ header {
                 @media (max-width: 769px) {
                     display: grid;
                     justify-content: center;
+                    justify-self: end;
                     align-items: center;
                     padding: 6px 14px;
                     width: max-content;
@@ -131,9 +139,12 @@ header {
                     }
                 }
             }
-            .activeBurger{
+
+            .activeBurger {
                 background-color: red;
+                justify-self: end;
             }
+
             nav {
                 display: grid;
                 grid-template-columns: repeat(4, min-content);
@@ -144,41 +155,43 @@ header {
                 }
 
                 @media (max-width: 769px) {
-                    display: none; 
+                    display: none;
                     grid-template-columns: 1fr;
                     gap: 0;
+                    opacity: 0;
+
+                    animation: openNavText 1s linear 1s forwards;
                 }
 
-                li {
+                a {
                     list-style: none;
                     padding: 12px 24px;
                     border-radius: 82px;
 
-                    @media (max-width: 1200px) {
-                        padding: 10px 18px;
-                    }
+                    font-family: Lexend,
+                        sans-serif;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 150%;
+                    /* 27px */
+                    color: $textColor;
 
                     &:hover {
                         background-color: #262626
                     }
 
-                    a {
-                        font-family: Lexend, sans-serif;
-                        font-size: 18px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 150%;
-                        /* 27px */
-                        color: $textColor;
-
-                        @media (max-width: 1200px) {
-                            font-size: 14px;
-                        }
+                    @media (max-width: 1200px) {
+                        padding: 10px 18px;
+                        font-size: 14px;
                     }
                 }
             }
-            .activeUl{
-                display: grid;
+
+            .activeUl {
+                @media (max-width: 769px) {
+                    display: grid;
+                }
             }
 
             .close {
@@ -197,8 +210,9 @@ header {
             }
 
             @media (max-width: 769px) {
-                display: none;
+               display: none;
             }
+
             .singUn {
                 font-family: Lexend, sans-serif;
                 font-size: 18px;
@@ -238,8 +252,34 @@ header {
             }
         }
 
+        .activeForm{
+            position: absolute;
+            bottom: 20px;
+
+            width: 85%;
+            padding: 5px 10px;
+            opacity: 0;
+            display: grid;
+            border: 1px solid $mainColor;
+            border-radius: 20px;
+
+            justify-content: space-between;
+
+            animation: openNavText 1s linear 1s forwards;
+        }
+
         .close {
             display: none;
+        }
+    }
+
+    .openNavBody {
+        @media (max-width: 769px) {
+            position: absolute;
+            top: 30px;
+            height: 90vh;
+            z-index: 100;
+            animation: openNavBody 1s linear forwards;
         }
     }
 
@@ -272,6 +312,11 @@ header {
         }
 
         .textBlock {
+
+            @media (max-width: 769px) {
+                margin-top: 50px;
+            }
+
             &__text {
                 display: inline-flex;
                 padding: 10px 20px 10px 12px;
@@ -328,6 +373,7 @@ header {
                     font-size: 24px;
                     margin-bottom: 50px;
                 }
+
                 @media (max-width: 769px) {
                     font-size: 28px;
                     margin-bottom: 8px;
@@ -349,6 +395,7 @@ header {
                     @media (max-width: 992px) {
                         font-size: 24px;
                     }
+
                     @media (max-width: 769px) {
                         font-size: 28px;
                     }
@@ -375,6 +422,7 @@ header {
                 @media (max-width: 992px) {
                     font-size: 11px;
                 }
+
                 @media (max-width: 769px) {
                     font-size: 14px;
                     text-align: center;
@@ -406,6 +454,7 @@ header {
                     padding: 10px 16px;
                     font-size: 12px;
                 }
+
                 @media (max-width: 769px) {
                     margin: 0 auto;
                 }
@@ -458,9 +507,11 @@ header {
                 @media (max-width: 1200px) {
                     padding: 11px 13px;
                 }
+
                 @media (max-width: 769px) {
                     left: -30px;
                 }
+
                 .transactions__icon {
                     padding: 9px;
                     height: 40px;
@@ -528,6 +579,7 @@ header {
                 @media (max-width: 992px) {
                     margin-bottom: 10px;
                 }
+
                 @media (max-width: 769px) {
                     margin-bottom: 15px;
                     font-size: 10px;
@@ -564,6 +616,7 @@ header {
 
             .exchange {
                 width: 100%;
+
                 @media (max-width: 992px) {
                     margin-top: -30px;
                 }
@@ -587,6 +640,7 @@ header {
                     @media (max-width: 992px) {
                         margin-bottom: 10px;
                     }
+
                     @media (max-width: 769px) {
                         font-size: 10px;
                         text-align: left;
@@ -613,6 +667,7 @@ header {
                     @media (max-width: 992px) {
                         margin: 0;
                     }
+
                     // @media (max-width: 769px) {
                     //     margin: 0 auto;
                     // }
@@ -659,6 +714,7 @@ header {
                     padding: 11px 20px;
                     font-size: 12px;
                 }
+
                 @media (max-width: 769px) {
                     margin-top: 14px;
                     padding: 8px 15px;
